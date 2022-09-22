@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "monorepo",
+  "version": "1.0.0",
+  "author": "Yoosuf Mo",
+  "email" : "mayoosuf@gmail.com",
+  "url" : "https://yoosuf.co",
+  "license": "MIT",
+  "scripts": {
+    "build:app": "yarn workspace app build",
+    "build:server": "yarn workspace server build",
+    "start:app": "yarn workspace app dev",
+    "start:server": "yarn workspace server start",
+    "start": "concurrently --kill-others-on-fail \"yarn start:app\"  \"yarn start:server\"",
+    "build": "concurrently --kill-others-on-fail \"yarn build:app\"  \"yarn build:server\""
+  },
+  "workspaces": [
+    "workspace/*"
+  ],
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
